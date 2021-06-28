@@ -9,6 +9,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import * as ScreenOrientation from 'expo-screen-orientation';
 
 import HomeContent from './src/screen/HomeContent';
+import AccountContent from './src/screen/AccountContent';
 
 
 
@@ -58,9 +59,9 @@ function CustomHeader({ title, isHome, navigation }) {
 
 function HomeScreen({ navigation }) {
   return (
-    < SafeAreaView style={{ flex: 1 }}>
+    < SafeAreaView >
       <CustomHeader title='Home' isHome={true} navigation={navigation} />
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View >
         <HomeContent />
         <TouchableOpacity style={{ marginTop: 20 }} onPress={() => navigation.navigate('HomeDetail')}>
           <Text>Go Home Detail</Text>
@@ -72,9 +73,9 @@ function HomeScreen({ navigation }) {
 
 function SettingsScreen({ navigation }) {
   return (
-    < SafeAreaView style={{ flex: 1 }}>
+    < SafeAreaView >
       <CustomHeader title='Setting' isHome={true} navigation={navigation} />
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View>
         <Text>Setting!</Text>
         <TouchableOpacity style={{ marginTop: 20 }} onPress={() => navigation.navigate('SettingDetail')}>
           <Text>Go Setting Detail</Text>
@@ -86,10 +87,10 @@ function SettingsScreen({ navigation }) {
 
 function AccountScreen({ navigation }) {
   return (
-    < SafeAreaView style={{ flex: 1 }}>
+    < SafeAreaView>
       <CustomHeader title='Setting' isHome={true} navigation={navigation} />
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Tài Khoản</Text>
+      <View >
+        <AccountContent/>
         <TouchableOpacity style={{ marginTop: 20 }} onPress={() => navigation.navigate('SettingDetail')}>
           <Text>Go Setting Detail</Text>
         </TouchableOpacity>
@@ -99,9 +100,9 @@ function AccountScreen({ navigation }) {
 }
 function SearchScreen({ navigation }) {
   return (
-    < SafeAreaView style={{ flex: 1 }}>
+    < SafeAreaView>
       <CustomHeader title='Setting' isHome={true} navigation={navigation} />
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View>
         <Text>Tìm kiếm</Text>
         <TouchableOpacity style={{ marginTop: 20 }} onPress={() => navigation.navigate('SettingDetail')}>
           <Text>Go Setting Detail</Text>
