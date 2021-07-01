@@ -9,11 +9,12 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import * as ScreenOrientation from 'expo-screen-orientation';
 
 import HomeContent from './src/screen/HomeContent';
-import AccountContent from './src/screen/AccountContent';
+import AccountContent from './src/screen/Account';
 
 
 
-import { Badge, Icon, withBadge } from 'react-native-elements'
+
+import { Badge, Icon, withBadge, ListItem } from 'react-native-elements'
 
 const CartBadge = withBadge(5)(Icon)
 
@@ -90,7 +91,7 @@ function AccountScreen({ navigation }) {
     < SafeAreaView>
       <CustomHeader title='Setting' isHome={true} navigation={navigation} />
       <View >
-        <AccountContent/>
+        <AccountContent />
         <TouchableOpacity style={{ marginTop: 20 }} onPress={() => navigation.navigate('SettingDetail')}>
           <Text>Go Setting Detail</Text>
         </TouchableOpacity>
@@ -247,18 +248,57 @@ function SettingStack() {
     </StackSetting.Navigator>
   )
 }
-
+// https://static.enapter.com/rn/icons/material.html
 function CustomDrawerContent(props) {
+  const list = [
+    {
+      title: 'Đăng ký',
+      icon: 'account-circle'
+    },
+    {
+      title: 'Đăng nhập',
+      icon: 'assignment-ind'
+    },
+    {
+      title: 'Tìm kiếm',
+      icon: 'search'
+    },
+    {
+      title: 'Lọc sản phẩm',
+      icon: 'filter-list'
+    },
+    {
+      title: 'Liên Hệ',
+      icon: 'mail-outline'
+    },
+  ]
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView style={{ marginLeft: 5 }}>
+    <SafeAreaView style={{ marginTop: 50 }}>
+      {/* <ScrollView style={{ marginLeft: 5 }}>
         <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('MenuTab')}>
           <Text>Menu Tab</Text>
         </TouchableOpacity>
         <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('Notifications')}>
           <Text>Notificationn</Text>
         </TouchableOpacity>
-      </ScrollView>
+      </ScrollView> */}
+
+      <View>
+        {
+          list.map((item, i) => (
+            <ListItem key={i} bottomDivider>
+              <Icon name={item.icon} />
+              <ListItem.Content>
+                <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('Notifications')}>
+                  <ListItem.Title>{item.title}</ListItem.Title>
+                </TouchableOpacity>
+              </ListItem.Content>
+              <ListItem.Chevron />
+            </ListItem>
+          ))
+        }
+      </View>
+
     </SafeAreaView>
   )
 }
