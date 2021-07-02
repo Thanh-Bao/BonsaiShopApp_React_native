@@ -9,7 +9,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import * as ScreenOrientation from 'expo-screen-orientation';
 
 import HomeContent from './src/screen/HomeContent';
-import AccountContent from './src/screen/Account';
+import AccountContent from './src/screen/AccountContent';
 
 
 
@@ -290,7 +290,7 @@ function CustomDrawerContent(props) {
               <Icon name={item.icon} />
               <ListItem.Content>
                 <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('Notifications')}>
-                  <ListItem.Title>{item.title}</ListItem.Title>
+                  <ListItem.Title style={{marginBottom: 20}} >{item.title}</ListItem.Title>
                 </TouchableOpacity>
               </ListItem.Content>
               <ListItem.Chevron />

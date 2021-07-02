@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 
- class Account extends Component {
+export default class CartScreen extends Component {
     render() {
         return (
             <View>
-                <Text> Tài khoản </Text>
+                <Text> textInComponent </Text>
             </View>
         )
     }
 }
-
-export default Account;
