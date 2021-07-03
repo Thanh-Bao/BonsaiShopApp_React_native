@@ -135,10 +135,12 @@ function SettingScreenDetail({ navigation }) {
   );
 }
 
-function NotificationsScreen({ navigation }) {
+function NotificationsScreen({ route, navigation }) {
+  const {xxx} = route.params;
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button onPress={() => navigation.goBack()} title="Go back home" />
+      <Text>ABC {xxx} </Text>
     </View>
   );
 }
@@ -178,11 +180,7 @@ function TabNavigator() {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={style.iconMenu}>
-              {/* <Image source={require("./images/shopping-cart.png")} resizeMode="contain" style={{
-                width: 25,
-                height: 25,
-                tintColor: focused ? '#e32f45' : '#748c94'
-              }} /> */}
+            
               <CartIcon color={focused ? '#e32f45' : '#748c94'} />
               <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12, marginBottom: 7 }}>Giỏ Hàng</Text>
             </View>
@@ -274,14 +272,7 @@ function CustomDrawerContent(props) {
   ]
   return (
     <SafeAreaView style={{ marginTop: 50 }}>
-      {/* <ScrollView style={{ marginLeft: 5 }}>
-        <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('MenuTab')}>
-          <Text>Menu Tab</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('Notifications')}>
-          <Text>Notificationn</Text>
-        </TouchableOpacity>
-      </ScrollView> */}
+     
 
       <View>
         {
@@ -289,7 +280,7 @@ function CustomDrawerContent(props) {
             <ListItem key={i} bottomDivider>
               <Icon name={item.icon} />
               <ListItem.Content>
-                <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('Notifications')}>
+                <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('Notifications', {xxx: 123})}>
                   <ListItem.Title style={{marginBottom: 20}} >{item.title}</ListItem.Title>
                 </TouchableOpacity>
               </ListItem.Content>
