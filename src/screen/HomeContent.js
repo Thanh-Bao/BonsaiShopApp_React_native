@@ -23,23 +23,25 @@ class HomeContent extends Component {
             this.setState({
                 listProduct: respnse.data.list
             })
-        }).catch((err)=>{
-            console.log("loi roi 1234567")
+        }).catch((err) => {
+            alert('lỗi lấy danh sách sản phẩm')
         })
     }
 
     render() {
         return (
             <View>
-                <FlatList style={{ marginBottom: 290 }}
+                <FlatList style={{ marginBottom: 283 }}
                     data={this.state.listProduct}
                     renderItem={({ item }) =>
-                        <CustomCard 
-                        name={item.name}
-                        thumbnail={item.thumbnail}
-                        description={item.description}
+                        <CustomCard
+                            name={item.name}
+                            thumbnail={item.thumbnail}
+                            description={item.description}
+                            price={item.price}
                         />
                     }
+                    keyExtractor={(item, index) => index.toString()}
                 />
             </View>
         )

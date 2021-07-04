@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, Button, SafeAreaView, Image, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
+import { ActivityIndicator, Text, View, Button, SafeAreaView, Image, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -49,7 +49,7 @@ function CustomHeader({ title, isHome, navigation }) {
       </View>
 
       <View style={{ flex: 2, justifyContent: 'center' }}>
-        <Text style={{ textAlign: 'center' }}>{title}</Text>
+        <Text style={{ textAlign: 'center', fontWeight: "900" }}>{title}</Text>
       </View>
       <View style={{ flex: 1 }}></View>
     </View>
@@ -61,12 +61,10 @@ function CustomHeader({ title, isHome, navigation }) {
 function HomeScreen({ navigation }) {
   return (
     < SafeAreaView >
-      <CustomHeader title='Home' isHome={true} navigation={navigation} />
+      <CustomHeader title='Trang chủ' isHome={true} navigation={navigation} />
       <View >
         <HomeContent />
-        <TouchableOpacity style={{ marginTop: 20 }} onPress={() => navigation.navigate('HomeDetail')}>
-          <Text>Go Home Detail</Text>
-        </TouchableOpacity>
+        <ActivityIndicator size="large" color="#0000ff " />
       </View>
     </SafeAreaView >
   );
@@ -136,7 +134,7 @@ function SettingScreenDetail({ navigation }) {
 }
 
 function NotificationsScreen({ route, navigation }) {
-  const {xxx} = route.params;
+  const { xxx } = route.params;
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button onPress={() => navigation.goBack()} title="Go back home" />
@@ -180,7 +178,7 @@ function TabNavigator() {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={style.iconMenu}>
-            
+
               <CartIcon color={focused ? '#e32f45' : '#748c94'} />
               <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12, marginBottom: 7 }}>Giỏ Hàng</Text>
             </View>
@@ -272,7 +270,7 @@ function CustomDrawerContent(props) {
   ]
   return (
     <SafeAreaView style={{ marginTop: 50 }}>
-     
+
 
       <View>
         {
@@ -280,8 +278,8 @@ function CustomDrawerContent(props) {
             <ListItem key={i} bottomDivider>
               <Icon name={item.icon} />
               <ListItem.Content>
-                <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('Notifications', {xxx: 123})}>
-                  <ListItem.Title style={{marginBottom: 20}} >{item.title}</ListItem.Title>
+                <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('Notifications', { xxx: 123 })}>
+                  <ListItem.Title style={{ marginBottom: 20 }} >{item.title}</ListItem.Title>
                 </TouchableOpacity>
               </ListItem.Content>
               <ListItem.Chevron />
