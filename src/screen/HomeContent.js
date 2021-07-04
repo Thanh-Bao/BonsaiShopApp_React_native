@@ -13,14 +13,15 @@ class HomeContent extends Component {
         }
     }
 
+
+
     componentDidMount() {
         axios({
             method: 'get',
             url: 'https://baobaoshop.live/api/Products'
         }).then((respnse) => {
-            console.log("khong co loi 99999999999")
             this.setState({
-                listProduct: respnse.list
+                listProduct: respnse.data.list
             })
         }).catch((err)=>{
             console.log("loi roi 1234567")
@@ -31,20 +32,13 @@ class HomeContent extends Component {
         return (
             <View>
                 <FlatList style={{ marginBottom: 290 }}
-                    data={[
-                        { key: 'Devin' },
-                        { key: 'Dan' },
-                        { key: 'Dominic' },
-                        { key: 'Jackson' },
-                        { key: 'James' },
-                        { key: 'Joel' },
-                        { key: 'John' },
-                        { key: 'Jillian' },
-                        { key: 'Jimmy' },
-                        { key: 'Julie' },
-                    ]}
+                    data={this.state.listProduct}
                     renderItem={({ item }) =>
-                        <CustomCard name={item.key} />
+                        <CustomCard 
+                        name={item.name}
+                        thumbnail={item.thumbnail}
+                        description={item.description}
+                        />
                     }
                 />
             </View>

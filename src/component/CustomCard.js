@@ -1,19 +1,20 @@
 import React, { Component } from 'react'
 import { Text, View, Image } from 'react-native'
-
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
+import { decode } from 'he'
 
  class CustomCard extends Component {
     render() {
+        var striptags = require('striptags');
         return (
             <View>
                 <Card>
                     <Card.Title>{this.props.name}</Card.Title>
                     <Card.Divider />
-                    <Card.Image source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}>
+                    <Card.Image source={{ uri: `${this.props.thumbnail}` }}>
                     </Card.Image>
                     <Text style={{ marginBottom: 10 }}>
-                        The idea with React Native Elements is more about component structure than actual design.
+                    {/* {decode(striptags(this.props.description))} */}
                     </Text>
                     <View style={{ flexDirection: 'row', justifyContent: 'center', flex: 1 }}>
                         <Button
