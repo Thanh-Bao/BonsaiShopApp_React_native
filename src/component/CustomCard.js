@@ -3,16 +3,6 @@ import { Text, View, Image } from 'react-native'
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import { decode } from 'he'
 
-// class CustomCard extends Component {
-//     render() {
-//         var striptags = require('striptags');
-//         var numeral = require('numeral');
-//         return (
-
-
-//        )
-//     }
-// }
 
 function CustomCard(props) {
     var striptags = require('striptags');
