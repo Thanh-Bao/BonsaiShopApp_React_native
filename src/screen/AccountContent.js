@@ -6,15 +6,17 @@ import { Card, ListItem, Button, Icon } from 'react-native-elements'
 
 
 
-function AccountContent() {
+class AccountContent extends Component {
 
+    render() {
 
-    return (
-        <View style={{ flexDirection: 'row' }}>
-            <Text> Tài khoản  </Text>
-            <Text> Tài khoản  </Text>
-        </View>
-    )
+        return (
+            <View style={{flexDirection:'row'}}>
+                <Text> Tài khoản  </Text>
+                <Text> Tài khoản  </Text>
+            </View>
+        )
+    }
 }
 
 

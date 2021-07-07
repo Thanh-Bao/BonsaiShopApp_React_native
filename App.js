@@ -10,7 +10,6 @@ import * as ScreenOrientation from 'expo-screen-orientation';
 
 import HomeContent from './src/screen/HomeContent';
 import AccountContent from './src/screen/AccountContent';
-import CartContent from './src/screen/CartContent';
 
 
 
@@ -71,12 +70,12 @@ function HomeScreen({ navigation }) {
   );
 }
 
-function CartScreen({ navigation }) {
+function SettingsScreen({ navigation }) {
   return (
     < SafeAreaView >
       <CustomHeader title='Setting' isHome={true} navigation={navigation} />
       <View>
-        <CartContent/>
+        <Text>Setting!</Text>
         <TouchableOpacity style={{ marginTop: 20 }} onPress={() => navigation.navigate('SettingDetail')}>
           <Text>Go Setting Detail</Text>
         </TouchableOpacity>
@@ -240,7 +239,7 @@ const StackSetting = createStackNavigator();
 function SettingStack() {
   return (
     <StackSetting.Navigator initialRouterName="Setting">
-      <StackSetting.Screen name="Setting" component={CartScreen} options={navOptionHandler} />
+      <StackSetting.Screen name="Setting" component={SettingsScreen} options={navOptionHandler} />
       <StackSetting.Screen name="SettingDetail" component={SettingScreenDetail} options={navOptionHandler} />
     </StackSetting.Navigator>
   )
