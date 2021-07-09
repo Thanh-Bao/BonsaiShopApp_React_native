@@ -9,24 +9,37 @@ class HomeContent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            listProduct: null
+            listProduct: [],
+            page: 1
         }
     }
 
 
 
     componentDidMount() {
+        this.getData();
+    }
+
+    getData = async () => {
         axios({
             method: 'get',
-            url: 'https://baobaoshop.live/api/Products'
+            url: 'https://baobaoshop.live/api/Products?page=' + this.state.page
         }).then((respnse) => {
             this.setState({
-                listProduct: respnse.data.list
+                listProduct: this.state.listProduct.concat(respnse.data.list)
             })
         }).catch((err) => {
             alert('lỗi lấy danh sách sản phẩm')
         })
     }
+
+    handleLoadMore = () => {
+        this.setState({
+            page: this.state.page + 1
+        }, this.getData
+        )
+    }
+
 
     render() {
         return (
@@ -42,6 +55,7 @@ class HomeContent extends Component {
                         />
                     }
                     keyExtractor={(item, index) => index.toString()}
+                    onEndReached={this.handleLoadMore}
                 />
             </View>
         )
