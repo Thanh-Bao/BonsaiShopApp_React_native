@@ -48,6 +48,7 @@ class HomeContent extends Component {
                     data={this.state.listProduct}
                     renderItem={({ item }) =>
                         <CustomCard
+                            navigation={this.props.navigation}
                             name={item.name}
                             thumbnail={item.thumbnail}
                             description={item.description}

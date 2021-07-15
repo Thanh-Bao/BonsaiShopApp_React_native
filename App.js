@@ -133,12 +133,11 @@ function SettingScreenDetail({ navigation }) {
   );
 }
 
-function NotificationsScreen({ route, navigation }) {
-  const { xxx } = route.params;
+function NotificationsScreen(props) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button onPress={() => navigation.goBack()} title="Go back home" />
-      <Text>ABC {xxx} </Text>
+      <Button onPress={() => props.navigation.goBack()} title="Go back home" />
+      <Text>ABC  </Text>
     </View>
   );
 }

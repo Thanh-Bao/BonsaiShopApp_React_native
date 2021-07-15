@@ -4,6 +4,9 @@ import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import { decode } from 'he'
 
 class CustomCard extends Component {
+    constructor(props) {
+        super(props)
+    }
     render() {
         var striptags = require('striptags');
         var numeral = require('numeral');
@@ -16,9 +19,9 @@ class CustomCard extends Component {
                     </Card.Image>
 
 
-                    <View style={{flexDirection: 'row',justifyContent:'center', flex: 1}}>
-                        <Text style={{fontSize: 30, fontWeight: '700', color:'red'}}>
-                        {numeral(this.props.price).format('0,0')} đ
+                    <View style={{ flexDirection: 'row', justifyContent: 'center', flex: 1 }}>
+                        <Text style={{ fontSize: 30, fontWeight: '700', color: 'red' }}>
+                            {numeral(this.props.price).format('0,0')} đ
                         </Text>
                     </View>
 
@@ -31,7 +34,7 @@ class CustomCard extends Component {
                     </Text>
                     <View style={{ flexDirection: 'row', justifyContent: 'center', flex: 1 }}>
                         <Button
-
+                            onPress={() => { this.props.navigation.navigate('Notifications') }}
                             type="outline"
                             icon={<Icon name='visibility' color='#0066ff' />}
                             buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 10, marginBottom: 0 }}
